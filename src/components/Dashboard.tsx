@@ -31,28 +31,28 @@ export function Dashboard({
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-tea-900">Tee-Kosten-Tracker</h1>
-          <p className="text-tea-600">Kalkulation & Tracking für deine Tee-Produktion</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-tea-900">Tee-Kosten-Tracker</h1>
+          <p className="text-tea-600 text-sm sm:text-base">Kalkulation & Tracking für deine Tee-Produktion</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
           <button
             onClick={onExportCsv}
             disabled={products.length === 0}
-            className="px-4 py-2 border border-tea-300 rounded-lg hover:bg-tea-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="px-3 sm:px-4 py-2 text-sm border border-tea-300 rounded-lg hover:bg-tea-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
-            CSV Export
+            CSV
           </button>
           <button
             onClick={onOpenSettings}
-            className="px-4 py-2 border border-tea-300 rounded-lg hover:bg-tea-100 transition-colors"
+            className="px-3 sm:px-4 py-2 text-sm border border-tea-300 rounded-lg hover:bg-tea-100 transition-colors"
           >
             Einstellungen
           </button>
           <button
             onClick={onAddProduct}
-            className="px-4 py-2 bg-tea-600 text-white rounded-lg hover:bg-tea-700 font-medium transition-colors shadow-md"
+            className="flex-1 sm:flex-none px-3 sm:px-4 py-2 text-sm bg-tea-600 text-white rounded-lg hover:bg-tea-700 font-medium transition-colors shadow-md"
           >
             + Neues Produkt
           </button>
@@ -60,7 +60,7 @@ export function Dashboard({
       </div>
 
       {/* Statistik-Karten */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <div className="bg-white rounded-xl border border-tea-200 p-4 shadow-sm">
           <div className="text-sm text-tea-600">Produkte</div>
           <div className="text-2xl font-bold text-tea-800">{stats.totalProducts}</div>

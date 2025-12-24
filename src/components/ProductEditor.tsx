@@ -143,8 +143,8 @@ export function ProductEditor({ product, settings, onSave, onCancel }: ProductEd
             </div>
             <div className="space-y-3">
               {ingredients.map((ingredient, index) => (
-                <div key={ingredient.id} className="grid grid-cols-12 gap-2 items-end">
-                  <div className="col-span-5">
+                <div key={ingredient.id} className="grid grid-cols-12 gap-1 sm:gap-2 items-end">
+                  <div className="col-span-12 sm:col-span-5">
                     {index === 0 && <label className="block text-xs font-medium mb-1 text-tea-600">Name</label>}
                     <input
                       type="text"
@@ -155,8 +155,8 @@ export function ProductEditor({ product, settings, onSave, onCancel }: ProductEd
                       required
                     />
                   </div>
-                  <div className="col-span-3">
-                    {index === 0 && <label className="block text-xs font-medium mb-1 text-tea-600">Anteil %</label>}
+                  <div className="col-span-5 sm:col-span-3">
+                    <label className={`block text-xs font-medium mb-1 text-tea-600 ${index === 0 ? '' : 'sm:hidden'}`}>%</label>
                     <input
                       type="number"
                       value={ingredient.percentageOfBlend}
@@ -167,8 +167,8 @@ export function ProductEditor({ product, settings, onSave, onCancel }: ProductEd
                       required
                     />
                   </div>
-                  <div className="col-span-3">
-                    {index === 0 && <label className="block text-xs font-medium mb-1 text-tea-600">€/kg</label>}
+                  <div className="col-span-5 sm:col-span-3">
+                    <label className={`block text-xs font-medium mb-1 text-tea-600 ${index === 0 ? '' : 'sm:hidden'}`}>€/kg</label>
                     <input
                       type="number"
                       value={ingredient.pricePerKg}
@@ -179,7 +179,7 @@ export function ProductEditor({ product, settings, onSave, onCancel }: ProductEd
                       required
                     />
                   </div>
-                  <div className="col-span-1">
+                  <div className="col-span-2 sm:col-span-1">
                     <button
                       type="button"
                       onClick={() => removeIngredient(ingredient.id)}
